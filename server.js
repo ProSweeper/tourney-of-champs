@@ -3,13 +3,21 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+// require the session middleware
+var session = require('express-session');
 // method override for our edit and delete functionality
 var methodOverride = require('method-override');
+// require the passport
+var passport = require('passport');
+
+
 
 // load the .env file for accessing on our server
 require('dotenv').config();
 // connect to the MongoDB database
 require('./config/database');
+// config the passport middleware
+require('./config/passport');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -24,6 +32,22 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+// mount the session middleware
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: true
+}));
+// mount our passport
+app.use(passport.initialize());
+app.use(passport.session());
+// store whether or not a user is logged in inside a variable 
+// on the request object (if not logged in req.user === undefined)
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
 // mount our method override middleware and have it look for a 
 // query string of _method (the arg we pass into the function)
 // we want it before the router mounts so that the http method is 
