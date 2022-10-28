@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+// method override for our edit and delete functionality
+var methodOverride = require('method-override');
 
 // load the .env file for accessing on our server
 require('dotenv').config();
@@ -22,6 +24,11 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+// mount our method override middleware and have it look for a 
+// query string of _method (the arg we pass into the function)
+// we want it before the router mounts so that the http method is 
+// changed before it reaches our routers
+app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
