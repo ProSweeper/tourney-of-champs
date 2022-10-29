@@ -5,11 +5,23 @@
 body {
   height: 100vh;
   width: 100vw;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+i {
+  font-size: 6vmin;
+  color: #00B7FF;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  font: 1.8vmin "ubuntu";
+  background-color: #291F1E;
 }
 
 .login {
@@ -19,6 +31,39 @@ a {
   height: 34px;
 }
 
-.login img {
+.navbar img {
   height: 3vmin;
 }
+
+.accolades-container {
+  height: 55vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background: url('../images/AccoladesBG.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  background-color: #FF9500;
+  background-blend-mode: hard-light;
+  color: #FFFFFF;
+}
+
+.accolades {
+  display: flex;
+  justify-content: space-around;
+  width: 100vw;
+}
+
+.accolade p {
+  font-size: 2vmin;
+  text-shadow: 1px 1px 2px #00B7FF;
+}
+
+#logo {
+  width: 50vw;
+}
+
