@@ -58,6 +58,10 @@ i {
   width: 100vw;
 }
 
+.accolade {
+  margin-top: 25vmin;
+}
+
 .accolade p {
   font-size: 2vmin;
   text-shadow: 1px 1px 2px #00B7FF;
