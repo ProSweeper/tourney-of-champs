@@ -52,6 +52,36 @@ i {
   color: #FFFFFF;
 }
 
+.about-container{
+  height: 55vh;
+  width: 100vw;
+  background-color: #00B7FF;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.sign-up {
+  height: 70px;
+  background-color: #4a5759;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-up a {
+  color: #FF9500;
+  padding: 10px;
+  border-radius: 15%;
+  border: #FF9500 solid 2px;
+}
+
+.sign-up a:hover {
+  text-decoration: none;
+  background-color: #FF9500;
+  color: #4a5759;
+}
+
 .accolades {
   display: flex;
   justify-content: space-around;

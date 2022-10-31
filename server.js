@@ -57,6 +57,7 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+// mount the users router so that all its roots start with '/users'
 app.use('/users', usersRouter);
 // mount the teams router so that all its roots start with '/teams'
 app.use('/teams', teamsRouter);

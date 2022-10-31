@@ -1,11 +1,13 @@
 var express = require('express');
 var router = express.Router();
+const userCtrl = require('../controllers/users');
 // Require the auth middleware
 const ensureLoggedIn = require('../config/ensureLoggedIn');
+const { render } = require('../server');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+// all routes start with /users
+
+// GET /users/new 
+router.get('/new', userCtrl.new);
 
 module.exports = router;

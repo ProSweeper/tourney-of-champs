@@ -14,7 +14,7 @@ const reviewSchema = {
     },
     player: {
         type: Schema.Types.ObjectId,
-        ref: 'Player',
+        ref: 'User',
         required: true,
     }
 };
@@ -31,11 +31,9 @@ const teamSchema = {
     },
     roster: [{
         type: Schema.Types.ObjectId,
-        ref: 'Player'
+        ref: 'User'
     }],
     reviews: [reviewSchema],
 };
-
-
 
 module.exports = mongoose.model('Team', teamSchema);
