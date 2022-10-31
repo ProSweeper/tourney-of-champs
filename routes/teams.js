@@ -11,5 +11,7 @@ router.get('/', teamsCtrl.index);
 router.get('/new', teamsCtrl.new);
 // POST /teams
 router.post('/', teamsCtrl.create);
+// GET /teams/:id
+router.get('/:id', teamsCtrl.show);
 
 module.exports = router;

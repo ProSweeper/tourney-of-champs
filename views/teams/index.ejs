@@ -10,7 +10,7 @@
             <% if (teams.length) { %>
                 <% teams.forEach(function(team){ %>
                     <tr>
-                        <td><%= team.teamName %></td>
+                        <td><a href="/teams/<%= team._id %>"><%= team.teamName %></a></td>
                         <td><%= team.skillLevel %></td>
                     </tr>
                 <% }) %>
