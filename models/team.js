@@ -26,7 +26,7 @@ const teamSchema = {
     },
     skillLevel: {
         type: String,
-        enum: ['beginner', 'intermediate', 'expert'],
+        enum: ['Beginner', 'Intermediate', 'Expert'],
         required: true,
     },
     roster: [{

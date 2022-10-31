@@ -9,6 +9,7 @@ const ensureLoggedIn = require('../config/ensureLoggedIn');
 router.get('/', teamsCtrl.index);
 // GET /teams/new
 router.get('/new', teamsCtrl.new);
-
+// POST /teams
+router.post('/', teamsCtrl.create);
 
 module.exports = router;
