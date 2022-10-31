@@ -1,23 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const teamSchema = {
-    teamName: {
-        type: String,
-        required: true,
-    },
-    skillLevel: {
-        type: String,
-        enum: ['beginner', 'intermediate', 'expert'],
-        required: true,
-    },
-    roster: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Player'
-    }],
-    reviews: [reviewSchema],
-};
-
 const reviewSchema = {
     content: {
         type: String,
@@ -35,5 +18,24 @@ const reviewSchema = {
         required: true,
     }
 };
+
+const teamSchema = {
+    teamName: {
+        type: String,
+        required: true,
+    },
+    skillLevel: {
+        type: String,
+        enum: ['beginner', 'intermediate', 'expert'],
+        required: true,
+    },
+    roster: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Player'
+    }],
+    reviews: [reviewSchema],
+};
+
+
 
 module.exports = mongoose.model('Team', teamSchema);
