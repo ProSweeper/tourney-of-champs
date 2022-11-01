@@ -27,6 +27,12 @@ function newTeam(req, res) {
 }
 
 function create(req, res) {
+    // get the user from our middleware function so we can save them to the team they make
+    req.body.user = req.user._id;
+    // save the users name
+    req.body.userName = req.user.name;
+    // save their avatar in case we want to access it 
+    req.body.userAvatar = req.user.avatar;
     // create a new team from the form (info is saved in request body)
     Team.create(req.body, function(err, team) {
         // performing CRUD so redirect needed

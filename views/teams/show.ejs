@@ -18,27 +18,31 @@
             <% }) %>
         </tbody>
     </table>
-    <h4>Add a Teammate</h4>
-    <form action="/teams/<%= team._id %>/players" method="POST">
-        <label>Name: 
-            <input type="text" name="name" required>
-        </label><br>
-        <label> Position: 
-            <select name="position" required>
-                    <option value="Forward">
-                        Forward
-                    </option>
-                    <option value="Defence">
-                        Defence
-                    </option>
-                    <option value="Goalie">
-                        Goalie
-                    </option>
-            </select>
-        </label><br>
-        <label> Jersey Number: 
-            <input type="number" name="jerseyNum">
-        </label>
-        <button type="submit">Add Teammate</button>
-    </form>
+    <!-- make it so only the team creater can edit the roster -->
+    <% if (user?._id.equals(team.user)) { %>
+        <h4>Add a Teammate</h4>
+        <form action="/teams/<%= team._id %>/players" method="POST">
+            <label>Name: 
+                <input type="text" name="name" required>
+            </label><br>
+            <label> Position: 
+                <select name="position" required>
+                        <option value="Forward">
+                            Forward
+                        </option>
+                        <option value="Defence">
+                            Defence
+                        </option>
+                        <option value="Goalie">
+                            Goalie
+                        </option>
+                </select>
+            </label><br>
+            <label> Jersey Number: 
+                <input type="number" name="jerseyNum">
+            </label>
+            <button type="submit">Add Teammate</button>
+        </form>
+    <% } %>
+
 <%- include('../partials/footer') %>

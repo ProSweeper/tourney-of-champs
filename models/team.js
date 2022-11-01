@@ -38,6 +38,13 @@ const playerSchema = {
 }
 
 const teamSchema = {
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+    },
+    userAvatar: String,
+    userName: String,
     teamName: {
         type: String,
         required: true,
