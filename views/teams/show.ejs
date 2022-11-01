@@ -1,3 +1,44 @@
 <%- include('../partials/header') %>
-
+    <table class="table">
+        <thead>
+            <tr>
+                <th colspan="2" class="table-header">Roster</th>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% team.roster.forEach(function(player) { %>
+                <tr>
+                    <td><%= player.name %></td>
+                    <td><%= player.position %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <h4>Add a Teammate</h4>
+    <form action="/teams/<%= team._id %>/players" method="POST">
+        <label>Name: 
+            <input type="text" name="name" required>
+        </label><br>
+        <label> Position: 
+            <select name="position" required>
+                    <option value="Forward">
+                        Forward
+                    </option>
+                    <option value="Defence">
+                        Defence
+                    </option>
+                    <option value="Goalie">
+                        Goalie
+                    </option>
+            </select>
+        </label><br>
+        <label> Jersey Number: 
+            <input type="number" name="jerseyNum">
+        </label>
+        <button type="submit">Add Teammate</button>
+    </form>
 <%- include('../partials/footer') %>

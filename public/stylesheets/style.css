@@ -101,3 +101,9 @@ i {
   width: 50vw;
 }
 
+.table-header {
+  text-align: center;
+  background-color: #FF9500;
+  border: none;
+}
+

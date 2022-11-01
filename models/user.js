@@ -8,7 +8,11 @@ const userSchema = new Schema({
     required: true
   },
   email: String,
-  avatar: String
+  avatar: String,
+  onTeam: {
+    type: Boolean,
+    default: false
+  }
 }, {
   timestamps: true
 });

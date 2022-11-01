@@ -19,6 +19,24 @@ const reviewSchema = {
     }
 };
 
+const playerSchema = {
+    name: {
+        type: String,
+        required: true,
+    },
+    position: {
+        type: String,
+        enum: ['Forward', 'Defence', 'Goalie'],
+        required: true,
+    },
+    jerseyNum: {
+        type: Number,
+        min: 1,
+        max: 99,
+        default: randomNum()
+    }
+}
+
 const teamSchema = {
     teamName: {
         type: String,
@@ -29,11 +47,12 @@ const teamSchema = {
         enum: ['Beginner', 'Intermediate', 'Expert'],
         required: true,
     },
-    roster: [{
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    }],
+    roster: [playerSchema],
     reviews: [reviewSchema],
 };
 
 module.exports = mongoose.model('Team', teamSchema);
+
+function randomNum() {
+    return (Math.floor(Math.random() * 99) + 1);
+}
