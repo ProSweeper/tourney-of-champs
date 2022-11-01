@@ -8,9 +8,9 @@ const ensureLoggedIn = require('../config/ensureLoggedIn');
 // GET /teams (display all teams)
 router.get('/', teamsCtrl.index);
 // GET /teams/new
-router.get('/new', teamsCtrl.new);
+router.get('/new', ensureLoggedIn, teamsCtrl.new);
 // POST /teams
-router.post('/', teamsCtrl.create);
+router.post('/', ensureLoggedIn, teamsCtrl.create);
 // GET /teams/:id
 router.get('/:id', teamsCtrl.show);
 

@@ -8,6 +8,6 @@ const { render } = require('../server');
 // all routes start with /users
 
 // GET /users/new 
-router.get('/new', userCtrl.new);
+router.get('/new', ensureLoggedIn, userCtrl.new);
 
 module.exports = router;
