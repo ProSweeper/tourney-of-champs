@@ -20,13 +20,11 @@ function create(req, res) {
 
 function deletePlayer(req, res) {
     Team.findOne({
-        'players._id':req.params.id,
-    }, function(err, team) {        //<------ You queried for a team, not a player
-        if (!team || err) {         // Update here too
-            // in case of error or no player
-            res.redirect(`/teams/${team._id}`);
+        'roster._id':req.params.id,  // property is roster, not players
+    }, function(err, team) {     
+        if (!team || err) {         
+            return res.redirect(`/teams/${team._id}`);  // <-- add return
         }
-        console.log(req.body)
         team.roster.remove(req.params.id);
         team.save(function(err) {
             res.redirect(`/teams/${team._id}`);

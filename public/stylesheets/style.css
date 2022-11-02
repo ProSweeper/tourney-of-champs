@@ -109,5 +109,35 @@ i {
 
 footer {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows:1fr 9fr;
+  grid-template-columns: 1fr 1fr;  
+  background-color: #291F1E;
+  justify-items: center; 
+  height: 15vh;
+}
+
+footer h5 {
+  margin-top: 1.5vh;
+  color: #00B7FF;
+}
+
+#GA {
+  margin-top: -2vh;
+}
+
+.fh {
+  margin-bottom: 2vh;
+}
+
+footer>div {
+  height: 12vh;
+  /* text-align: center; */
+  align-self: center;
+  justify-self: center;
+}
+
+#GA, .contact {
+  height: 20vmin;
+  font-size: 5vmin;
+  max-height: 80%;
 }
