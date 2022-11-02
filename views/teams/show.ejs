@@ -7,6 +7,9 @@
             <tr>
                 <th>Name</th>
                 <th>Position</th>
+                <% if (user?._id.equals(team.user)) { %>
+                    <th></th>
+                <% } %>
             </tr>
         </thead>
         <tbody>
@@ -14,6 +17,13 @@
                 <tr>
                     <td><%= player.name %></td>
                     <td><%= player.position %></td>
+                    <% if (user?._id.equals(team.user)) { %>
+                        <td>
+                            <form action="/players/<%= player._id %>?_method=DELETE" method="POST">
+                                <button type="submit">DELETE</button>
+                            </form>
+                        </td>
+                    <% } %>
                 </tr>
             <% }) %>
         </tbody>
