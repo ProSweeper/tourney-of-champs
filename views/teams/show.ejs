@@ -2,7 +2,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th colspan="2" class="table-header">Roster</th>
+                <th colspan="<%= user? 4 : 2 %>" class="table-header">Roster</th>
             </tr>
             <tr>
                 <th>Name</th>
@@ -23,6 +23,9 @@
                                 <button type="submit">DELETE</button>
                             </form>
                         </td>
+                        <td>
+                            <a href="#">Edit</a>
+                        </td>
                     <% } %>
                 </tr>
             <% }) %>
@@ -30,6 +33,7 @@
     </table>
     <!-- make it so only the team creater can edit the roster -->
     <% if (user?._id.equals(team.user)) { %>
+        <a href="/teams/<%= team._id %>/edit">Edit Team</a>
         <h4>Add a Teammate</h4>
         <form action="/teams/<%= team._id %>/players" method="POST">
             <label>Name: 

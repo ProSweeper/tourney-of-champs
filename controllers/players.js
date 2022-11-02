@@ -5,6 +5,10 @@ module.exports = {
     delete: deletePlayer,
 }
 
+function edit(req, res) {
+    //
+}
+
 function create(req, res) {
     // find the team that we are adding the player to the roster
     Team.findById(req.params.id, function(err, team) {

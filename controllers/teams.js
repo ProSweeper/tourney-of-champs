@@ -6,6 +6,13 @@ module.exports = {
     new: newTeam,
     create,
     show,
+    edit,
+}
+
+function edit(req, res) {
+    res.render(`teams/edit`, {
+        title: 'Edit Team'
+    });
 }
 
 function index(req, res) {
