@@ -2,7 +2,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th colspan="<%= user? 4 : 2 %>" class="table-header">Roster</th>
+                <th colspan="<%= user? 3 : 2 %>" class="table-header">Roster</th>
             </tr>
             <tr>
                 <th>Name</th>
@@ -22,9 +22,6 @@
                             <form action="/players/<%= player._id %>?_method=DELETE" method="POST">
                                 <button type="submit">DELETE</button>
                             </form>
-                        </td>
-                        <td>
-                            <a href="#">Edit</a>
                         </td>
                     <% } %>
                 </tr>

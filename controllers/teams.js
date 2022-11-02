@@ -7,11 +7,28 @@ module.exports = {
     create,
     show,
     edit,
+    update,
+}
+
+function update(req, res) {
+    Team.findByIdAndUpdate(
+        {_id: req.params.id},
+        req.body,
+        {new: true},
+        function(err, team) {
+            if (err || !team) return res.redirect('/teams/index');
+            res.redirect(`/teams/${team._id}`);
+        }
+    )
 }
 
 function edit(req, res) {
-    res.render(`teams/edit`, {
-        title: 'Edit Team'
+    Team.findOne({_id: req.params.id}, function(err, team) {
+        if (err || !team) return res.redirect('/teams/index');
+        res.render(`teams/edit`, {
+            title: 'Edit Team',
+            team
+        });
     });
 }
 

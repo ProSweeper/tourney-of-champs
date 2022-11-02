@@ -13,6 +13,8 @@ router.get('/new', ensureLoggedIn, teamsCtrl.new);
 router.post('/', ensureLoggedIn, teamsCtrl.create);
 // GET /teams/:id
 router.get('/:id', teamsCtrl.show);
-//GET /teams/:id/edit
+// GET /teams/:id/edit
 router.get('/:id/edit', ensureLoggedIn, teamsCtrl.edit);
+// PUT /teams/:id
+router.put('/:id', ensureLoggedIn, teamsCtrl.update);
 module.exports = router;
