@@ -1,4 +1,3 @@
-const team = require('../models/team');
 const Team = require('../models/team');
 
 module.exports = {
@@ -22,13 +21,13 @@ function create(req, res) {
 function deletePlayer(req, res) {
     Team.findOne({
         'players._id':req.params.id,
-        'players.userId': req.user._id,
-    }, function(err, player) {
-        if (!player || err) {
+    }, function(err, team) {        //<------ You queried for a team, not a player
+        if (!team || err) {         // Update here too
             // in case of error or no player
             res.redirect(`/teams/${team._id}`);
         }
-        team.players.remove(req.params.id);
+        console.log(req.body)
+        team.roster.remove(req.params.id);
         team.save(function(err) {
             res.redirect(`/teams/${team._id}`);
         });

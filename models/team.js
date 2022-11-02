@@ -38,6 +38,7 @@ const playerSchema = {
 }
 
 const teamSchema = {
+    roster: [playerSchema],
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',
@@ -54,7 +55,6 @@ const teamSchema = {
         enum: ['Beginner', 'Intermediate', 'Expert'],
         required: true,
     },
-    roster: [playerSchema],
     reviews: [reviewSchema],
 };
 
