@@ -23,11 +23,13 @@ function update(req, res) {
 }
 
 function edit(req, res) {
+    const validSkillLevels = Team.schema.path('skillLevel').enumValues;
     Team.findOne({_id: req.params.id}, function(err, team) {
         if (err || !team) return res.redirect('/teams/index');
         res.render(`teams/edit`, {
             title: 'Edit Team',
-            team
+            team,
+            validSkillLevels
         });
     });
 }
