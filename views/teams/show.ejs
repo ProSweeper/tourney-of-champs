@@ -2,10 +2,11 @@
     <table class="table">
         <thead>
             <tr>
-                <th colspan="<%= user? 3 : 2 %>" class="table-header">Roster</th>
+                <th colspan="<%= user? 4 : 3 %>" class="table-header">Roster</th>
             </tr>
             <tr>
                 <th>Name</th>
+                <th>Number</th>
                 <th>Position</th>
                 <% if (user?._id.equals(team.user)) { %>
                     <th></th>
@@ -16,6 +17,7 @@
             <% team.roster.forEach(function(player) { %>
                 <tr>
                     <td><%= player.name %></td>
+                    <td><%= player.jerseyNum %></td>
                     <td><%= player.position %></td>
                     <% if (user?._id.equals(team.user)) { %>
                         <td>

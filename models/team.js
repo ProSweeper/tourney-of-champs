@@ -52,7 +52,7 @@ const teamSchema = {
     },
     skillLevel: {
         type: String,
-        enum: ['Beginner', 'Intermediate', 'Expert'],
+        enum: ['Beginner', 'Intermediate', 'Professional'],
         required: true,
     },
     reviews: [reviewSchema],
