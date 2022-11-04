@@ -1,64 +1,65 @@
 <%- include('../partials/header') %>
-    <h2 class="team-name"><%= team.teamName %></h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th colspan="<%= user? 4 : 3 %>" class="table-header">Roster</th>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <th>Number</th>
-                <th>Position</th>
-                <% if (user?._id.equals(team.user)) { %>
-                    <th></th>
-                <% } %>
-            </tr>
-        </thead>
-        <tbody>
-            <% team.roster.forEach(function(player) { %>
+    <div class="page">
+        <h2 class="team-name"><%= team.teamName %></h2>
+        <table class="table">
+            <thead>
                 <tr>
-                    <td><%= player.name %></td>
-                    <td><%= player.jerseyNum %></td>
-                    <td><%= player.position %></td>
+                    <th colspan="<%= user? 4 : 3 %>" class="table-header">Roster</th>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <th>Number</th>
+                    <th>Position</th>
                     <% if (user?._id.equals(team.user)) { %>
-                        <td>
-                            <form action="/players/<%= player._id %>?_method=DELETE" method="POST">
-                                <button type="submit" class="btn">DELETE</button>
-                            </form>
-                        </td>
+                        <th></th>
                     <% } %>
                 </tr>
-            <% }) %>
-        </tbody>
-    </table>
-    <!-- make it so only the team creater can edit the roster -->
-    <% if (user?._id.equals(team.user)) { %>
-        <div class="form-group">
-            <a href="/teams/<%= team._id %>/edit">Edit Team</a>
-            <h4>Add a Teammate</h4>
-            <form action="/teams/<%= team._id %>/players" method="POST">
-                <label>Name: 
-                    <input type="text" name="name" class="form-control" required>
-                </label><br>
-                <label> Position: 
-                    <select name="position" class="form-control" required>
-                            <option value="Forward">
-                                Forward
-                            </option>
-                            <option value="Defence">
-                                Defence
-                            </option>
-                            <option value="Goalie">
-                                Goalie
-                            </option>
-                    </select>
-                </label><br>
-                <label> Jersey Number: 
-                    <input class="form-control" type="number" name="jerseyNum">
-                </label>
-                <button type="submit" class="btn">Add Teammate</button>
-            </form>
-        </div>
-    <% } %>
-
+            </thead>
+            <tbody>
+                <% team.roster.forEach(function(player) { %>
+                    <tr>
+                        <td><%= player.name %></td>
+                        <td><%= player.jerseyNum %></td>
+                        <td><%= player.position %></td>
+                        <% if (user?._id.equals(team.user)) { %>
+                            <td>
+                                <form action="/players/<%= player._id %>?_method=DELETE" method="POST">
+                                    <button type="submit" class="btn">DELETE</button>
+                                </form>
+                            </td>
+                        <% } %>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        <!-- make it so only the team creater can edit the roster -->
+        <% if (user?._id.equals(team.user)) { %>
+            <div class="form-group">
+                <a href="/teams/<%= team._id %>/edit">Edit Team</a>
+                <h4>Add a Teammate</h4>
+                <form action="/teams/<%= team._id %>/players" method="POST">
+                    <label>Name: 
+                        <input type="text" name="name" class="form-control" required>
+                    </label><br>
+                    <label> Position: 
+                        <select name="position" class="form-control" required>
+                                <option value="Forward">
+                                    Forward
+                                </option>
+                                <option value="Defence">
+                                    Defence
+                                </option>
+                                <option value="Goalie">
+                                    Goalie
+                                </option>
+                        </select>
+                    </label><br>
+                    <label> Jersey Number: 
+                        <input class="form-control" type="number" name="jerseyNum">
+                    </label>
+                    <button type="submit" class="btn">Add Teammate</button>
+                </form>
+            </div>
+        <% } %>
+    </div>
 <%- include('../partials/footer') %>

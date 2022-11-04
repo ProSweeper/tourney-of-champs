@@ -196,7 +196,7 @@ footer>div {
 
 .form-container {
   background-color: #FFFFFF;
-  height: 55vh;
+  height: 80vh;
   display: grid;
   justify-items: center;
 }
@@ -210,7 +210,9 @@ footer>div {
   background-color: #FF9500;
   color: #4a5759;
 }
-
+.page {
+  min-height: 80vh;
+}
 .team-name {
   text-align: center;
   height: 10vh;
