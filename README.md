@@ -19,12 +19,17 @@ Sign up a team and populate it with teamates in this fullstack web app. View you
 * MongoDB
 * Bootstrap
 * Google Fonts
-* Logo Generator (https://logo.com/) 
+* [Logo Generator](https://logo.com/) 
+* [Font Awesome](https://fontawesome.com/icons?d=gallery&q=apple) 
 
 # Getting Started
 
+Click [here](https://tourney-of-champs.herokuapp.com/) to visit the app and sign up.
 
+Click [here](https://trello.com/b/MO8xARhI/tournament-of-champions) to view the planning that went into the app
 
 # Next Steps
 
-* 
+* Add sort functionality to all queries
+* Tie users to only one team
+* Add comments/reveiws of teams from past opponents
