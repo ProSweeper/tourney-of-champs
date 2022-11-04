@@ -1,17 +1,23 @@
 <%- include('../partials/header') %>
-    <form action="/teams" method="POST">
-        <label>Team Name: 
-            <input type="text" name="teamName" required>
-        </label><br>
-        <label>Select Division
-            <select name="skillLevel">
-                <% validSkillLevels.forEach(function(skillLevel, idx) { %>
-                    <option value="<%= skillLevel %>" <%= idx === 0 ? 'selected' : ''%>>
-                        <%= skillLevel %>
-                    </option>
-                <% }) %>
-            </select>
-        </label><br>
-        <button type="submit">Add Team</button>
-    </form>
+    <div class="form-container">
+        <form action="/teams" class="add-team" method="POST">
+            <div class="form-group">
+                <label>Team Name: 
+                    <input type="text" name="teamName" class="form-control" required>
+                </label><br>
+            </div>
+            <div class="form-group">
+                <label>Select Division
+                    <select name="skillLevel" class="form-control selector">
+                        <% validSkillLevels.forEach(function(skillLevel, idx) { %>
+                            <option value="<%= skillLevel %>" <%= idx === 0 ? 'selected' : ''%>>
+                                <%= skillLevel %>
+                            </option>
+                        <% }) %>
+                    </select>
+                </label><br>
+            </div>
+            <button type="submit" class="btn btn-warning">Add Team</button>
+        </form>
+    </div>
 <%- include('../partials/footer') %>

@@ -1,4 +1,5 @@
 <%- include('../partials/header') %>
+    <h2><%= team.teamName %></h2>
     <table class="table">
         <thead>
             <tr>
@@ -22,7 +23,7 @@
                     <% if (user?._id.equals(team.user)) { %>
                         <td>
                             <form action="/players/<%= player._id %>?_method=DELETE" method="POST">
-                                <button type="submit">DELETE</button>
+                                <button type="submit" class="btn">DELETE</button>
                             </form>
                         </td>
                     <% } %>
@@ -32,30 +33,32 @@
     </table>
     <!-- make it so only the team creater can edit the roster -->
     <% if (user?._id.equals(team.user)) { %>
-        <a href="/teams/<%= team._id %>/edit">Edit Team</a>
-        <h4>Add a Teammate</h4>
-        <form action="/teams/<%= team._id %>/players" method="POST">
-            <label>Name: 
-                <input type="text" name="name" required>
-            </label><br>
-            <label> Position: 
-                <select name="position" required>
-                        <option value="Forward">
-                            Forward
-                        </option>
-                        <option value="Defence">
-                            Defence
-                        </option>
-                        <option value="Goalie">
-                            Goalie
-                        </option>
-                </select>
-            </label><br>
-            <label> Jersey Number: 
-                <input type="number" name="jerseyNum">
-            </label>
-            <button type="submit">Add Teammate</button>
-        </form>
+        <div class="form-group">
+            <a href="/teams/<%= team._id %>/edit">Edit Team</a>
+            <h4>Add a Teammate</h4>
+            <form action="/teams/<%= team._id %>/players" method="POST">
+                <label>Name: 
+                    <input type="text" name="name" class="form-control" required>
+                </label><br>
+                <label> Position: 
+                    <select name="position" class="form-control" required>
+                            <option value="Forward">
+                                Forward
+                            </option>
+                            <option value="Defence">
+                                Defence
+                            </option>
+                            <option value="Goalie">
+                                Goalie
+                            </option>
+                    </select>
+                </label><br>
+                <label> Jersey Number: 
+                    <input class="form-control" type="number" name="jerseyNum">
+                </label>
+                <button type="submit" class="btn">Add Teammate</button>
+            </form>
+        </div>
     <% } %>
 
 <%- include('../partials/footer') %>

@@ -3,7 +3,7 @@
   margin: 0;
 }
 body {
-  height: 100vh;
+  /* background-color: #291F1E; */
   width: 100vw;
   font-family: 'Ubuntu', sans-serif;
 }
@@ -12,9 +12,14 @@ a {
   color: #00B7FF;
 }
 
+nav a:hover {
+  color: #FFFFFF;
+}
+
 i {
   font-size: 6vmin;
   color: #00B7FF;
+  padding: 1vmin;
 }
 
 .navbar {
@@ -134,13 +139,12 @@ footer h5 {
 
 footer>div {
   height: 12vh;
-  /* text-align: center; */
   align-self: center;
   justify-self: center;
 }
 
 #GA, .contact {
-  height: 20vmin;
+  /* height: 20vmin; */
   font-size: 5vmin;
   max-height: 80%;
 }
@@ -155,6 +159,7 @@ footer>div {
   height: 55vh;
   background-color: #FFFFFF;
   text-align: center;
+  color: #4a5759;
 }
 
 .features>h2 {
@@ -162,7 +167,7 @@ footer>div {
 }
 
 .features i {
-  color: #FF9500;
+  color: #4a5759;
   font-size: 8vmin;
   text-align: center;
   justify-self: center;
@@ -172,12 +177,46 @@ footer>div {
 .feature {
   margin: 0;
   display: flex;
-  justify-content: space-around;
   align-items: center;
 }
-.feature > div {
-  width: 40%;
-  background-color: #00B7FF;
+
+.feature > .description {
+  width: 50%;
   font-size: 1.5vmin;
   text-align: left;
+  justify-self: start;
+  align-self: flex-start;
+}
+
+.add-team {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.form-container {
+  background-color: #FFFFFF;
+  height: 55vh;
+  display: grid;
+  justify-items: center;
+}
+
+.form-group {
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+
+.btn {
+  background-color: #FF9500;
+  color: #4a5759;
+}
+
+h2 {
+  text-align: center;
+  height: 10vh;
+  background-color: #00B7FF;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

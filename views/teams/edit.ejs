@@ -1,17 +1,51 @@
 <%- include('../partials/header') %>
+    <h2><%= team.teamName %></h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th colspan="<%= user? 4 : 3 %>" class="table-header">Roster</th>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <th>Number</th>
+                <th>Position</th>
+                <% if (user?._id.equals(team.user)) { %>
+                    <th></th>
+                <% } %>
+            </tr>
+        </thead>
+        <tbody>
+            <% team.roster.forEach(function(player) { %>
+                <tr>
+                    <td><%= player.name %></td>
+                    <td><%= player.jerseyNum %></td>
+                    <td><%= player.position %></td>
+                    <% if (user?._id.equals(team.user)) { %>
+                        <td>
+                            <form action="/players/<%= player._id %>?_method=DELETE" method="POST">
+                                <button type="submit" class="btn">DELETE</button>
+                            </form>
+                        </td>
+                    <% } %>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
     <form action="/teams/<%= team._id %>?_method=PUT" method="POST">
-        <label>Team Name
-            <input name="teamName" type="text" placeholder="<%= team.teamName %>">
-        </label><br>
-        <label>Select Division
-            <select name="skillLevel">
-                <% validSkillLevels.forEach(function(skillLevel, idx) { %>
-                    <option value="<%= skillLevel %>" <%= skillLevel === team.skillLevel ? 'selected' : ''%>>
-                        <%= skillLevel %>
-                    </option>
-                <% }) %>
-            </select>
-        </label><br>
-        <button type="submit">Submit Update</button>
+        <div class="form-group">
+            <label>Team Name
+                <input name="teamName" type="text" class="form-control" placeholder="<%= team.teamName %>">
+            </label><br>
+            <label>Select Division
+                <select name="skillLevel" class="form-control">
+                    <% validSkillLevels.forEach(function(skillLevel, idx) { %>
+                        <option value="<%= skillLevel %>" <%= skillLevel === team.skillLevel ? 'selected' : ''%>>
+                            <%= skillLevel %>
+                        </option>
+                    <% }) %>
+                </select>
+            </label><br>
+            <button type="submit" class="btn">Submit Update</button>
+        </div>
     </form>
 <%- include('../partials/footer') %>

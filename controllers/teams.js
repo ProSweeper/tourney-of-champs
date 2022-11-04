@@ -37,8 +37,9 @@ function edit(req, res) {
 function index(req, res) {
     // query for all teams using an empty object, then render them
     Team.find({}, function(err, teams) {
-        res.render('teams/index', {title: 'All Teams', teams})
-    })
+        // teams.sort({skillLevel: -1});
+        res.render('teams/index', {title: 'All Teams', teams});
+    });
 }
 
 function newTeam(req, res) {
