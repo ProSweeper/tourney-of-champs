@@ -17,12 +17,13 @@ Sign up a team and populate it with teamates in this fullstack web app. View you
 * CSS
 * Mongoose
 * MongoDB
+* Bootstrap
+* Google Fonts
+* Logo Generator (https://logo.com/) 
 
 # Getting Started
 
 
-
-Click to 
 
 # Next Steps
 
